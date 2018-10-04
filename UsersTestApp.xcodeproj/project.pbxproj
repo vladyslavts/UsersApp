@@ -14,6 +14,8 @@
 		1393F2AF2165F83E007DA5BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1393F2AE2165F83E007DA5BD /* Assets.xcassets */; };
 		1393F2B22165F83E007DA5BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1393F2B02165F83E007DA5BD /* LaunchScreen.storyboard */; };
 		1393F2BD2165FCC6007DA5BD /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393F2BC2165FCC6007DA5BD /* UsersViewController.swift */; };
+		1393F2BF2165FEF7007DA5BD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393F2BE2165FEF7007DA5BD /* User.swift */; };
+		1393F2C12165FF0B007DA5BD /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393F2C02165FF0B007DA5BD /* ServerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		1393F2B12165F83E007DA5BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1393F2B32165F83E007DA5BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1393F2BC2165FCC6007DA5BD /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		1393F2BE2165FEF7007DA5BD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1393F2C02165FF0B007DA5BD /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				1393F2A42165F83C007DA5BD /* AppDelegate.swift */,
-				1393F2A62165F83C007DA5BD /* ViewController.swift */,
 				1393F2B92165F94D007DA5BD /* Model */,
 				1393F2BB2165F967007DA5BD /* View */,
 				1393F2BA2165F95F007DA5BD /* Controller */,
@@ -75,6 +78,8 @@
 		1393F2B92165F94D007DA5BD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1393F2BE2165FEF7007DA5BD /* User.swift */,
+				1393F2C02165FF0B007DA5BD /* ServerManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -82,6 +87,7 @@
 		1393F2BA2165F95F007DA5BD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1393F2A62165F83C007DA5BD /* ViewController.swift */,
 				1393F2BC2165FCC6007DA5BD /* UsersViewController.swift */,
 			);
 			path = Controller;
@@ -168,6 +174,8 @@
 				1393F2AD2165F83C007DA5BD /* UsersTestApp.xcdatamodeld in Sources */,
 				1393F2BD2165FCC6007DA5BD /* UsersViewController.swift in Sources */,
 				1393F2A72165F83C007DA5BD /* ViewController.swift in Sources */,
+				1393F2BF2165FEF7007DA5BD /* User.swift in Sources */,
+				1393F2C12165FF0B007DA5BD /* ServerManager.swift in Sources */,
 				1393F2A52165F83C007DA5BD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
