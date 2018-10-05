@@ -48,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1196" y="1063"/>
+            <point key="canvasLocation" x="-738" y="1437"/>
         </scene>
         <!--Users-->
         <scene sceneID="Mcm-bo-Ann">
@@ -89,7 +89,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="ntE-Gq-poN"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="editUserInfo" id="ntE-Gq-poN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

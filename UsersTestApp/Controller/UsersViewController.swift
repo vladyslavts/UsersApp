@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let editUserIdentifier = "editUserInfo"
+
 class UsersViewController: UIViewController {
     var users = [User]()
     
@@ -31,15 +33,23 @@ class UsersViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == editUserIdentifier {
+            let indexPath = tableView.indexPathForSelectedRow
+            let bottomBar = segue.destination as! ViewController
+            bottomBar.hidesBottomBarWhenPushed = true
+            let backItem = UIBarButtonItem()
+            backItem.title = ""
+            self.navigationItem.backBarButtonItem = backItem
+        }
     }
-    */
+ 
 
 }
 
@@ -63,5 +73,10 @@ extension UsersViewController: UITableViewDataSource {
 extension UsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: editUserIdentifier, sender: nil)
     }
 }
