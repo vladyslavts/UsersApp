@@ -23,8 +23,8 @@ class User: NSObject {
     }
     
     init(withResponse response: Result) {
-        self.firstName = response.name.first
-        self.lastName = response.name.last
+        self.firstName = response.name.first.capitalized
+        self.lastName = response.name.last.capitalized
         self.email = response.email
         self.phoneNumber = response.phone
         self.photoURL = response.picture.medium

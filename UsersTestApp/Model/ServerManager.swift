@@ -19,8 +19,13 @@ struct Result: Codable {
     let picture: Picture
 }
 
-struct Name: Codable {
-    let first, last: String
+extension Result {
+    
+    struct Name: Codable {
+        let first, last: String
+    }
+    
+    
 }
 
 struct Picture: Codable {
@@ -30,18 +35,24 @@ struct Picture: Codable {
 private let baseURL = "https://randomuser.me/api/?"
 
 class ServerManager: NSObject {
+
+    typealias loadUsersCompletionHandler = (_ users: [User], _ error: Error?) -> Void
     
     public static let shared = ServerManager()
     
-    func loadUsers(count: Int, completionHandler: @escaping(_ users: [User], _ error: Error?) -> Void)  {
-        let urlString = baseURL + "results=\(count)"
+    private override init() {
+        super.init()
+    }
+    
+    func loadUsers(count: Int, completionHandler: @escaping loadUsersCompletionHandler)  {
+        let urlString = baseURL + "+=\(count)"
         var usersArray = [User]()
        
         guard let URL = URL(string: urlString) else {return}
         
         URLSession.shared.dataTask(with: URL) { (data, response, error) in
-            guard let data = data else {return}
-            guard error == nil else {return}
+            guard let data = data, error == nil else { return }
+            
             do {
                 let users = try JSONDecoder().decode(Users.self, from: data)
                 for result in users.results {
