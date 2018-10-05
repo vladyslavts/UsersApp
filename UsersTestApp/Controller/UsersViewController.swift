@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let editUserIdentifier = "editUserInfo"
+private let editUserSegueIdentifier = "EditUserInfoViewController"
 
 class UsersViewController: UIViewController {
     var users = [User]()
@@ -38,12 +38,13 @@ class UsersViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == editUserIdentifier {
-            let indexPath = tableView.indexPathForSelectedRow
-            let bottomBar = segue.destination as! EditUserInfoViewController
-            bottomBar.hidesBottomBarWhenPushed = true
+
+        let indexPath = tableView.indexPathForSelectedRow
+
+        if segue.identifier == editUserSegueIdentifier {
+            let vc = segue.destination as! EditUserInfoViewController
+            vc.selectedUser = self.users[indexPath!.row]
+            vc.hidesBottomBarWhenPushed = true
             let backItem = UIBarButtonItem()
             backItem.title = ""
             self.navigationItem.backBarButtonItem = backItem
@@ -64,8 +65,7 @@ extension UsersViewController: UITableViewDataSource {
         let user: User = self.users[indexPath.row]
         cell.userPhoneNumber.text = user.phoneNumber
         cell.userFullName.text = user.fullName
-        cell.userPic.loadFrom(user.photoURL)
-        
+        cell.userPic.loadFrom(URL(string: user.photoURL)!)
         return cell
     }
 }
@@ -76,7 +76,7 @@ extension UsersViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: editUserSegueIdentifier, sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: editUserIdentifier, sender: nil)
     }
 }

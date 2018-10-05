@@ -54,7 +54,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XgG-hn-hg0">
                                                 <rect key="frame" x="0.0" y="150" width="375" height="160"/>
                                                 <subviews>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IrS-lG-gJs">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IrS-lG-gJs">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
@@ -115,6 +115,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Edit user info" id="K4s-kQ-GmY"/>
                     <connections>
+                        <outlet property="scrollView" destination="ZnU-dc-i1E" id="b5R-fg-b6h"/>
                         <outlet property="tableView" destination="IrS-lG-gJs" id="tXa-4o-rcp"/>
                         <outlet property="userPic" destination="ItV-F9-h7B" id="79K-MN-PXd"/>
                     </connections>
@@ -162,7 +163,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="editUserInfo" id="ntE-Gq-poN"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="EditUserInfoViewController" id="ntE-Gq-poN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

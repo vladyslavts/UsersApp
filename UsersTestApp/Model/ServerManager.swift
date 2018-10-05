@@ -24,7 +24,7 @@ struct Name: Codable {
 }
 
 struct Picture: Codable {
-    let large, medium, thumbnail: URL
+    let large, medium, thumbnail: String
 }
 
 private let baseURL = "https://randomuser.me/api/?"

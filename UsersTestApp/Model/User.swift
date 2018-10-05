@@ -14,7 +14,7 @@ class User: NSObject {
     let lastName: String
     let email: String
     let phoneNumber: String
-    let photoURL: URL
+    let photoURL: String
     
     var fullName: String {
         get {
@@ -35,6 +35,6 @@ class User: NSObject {
         self.lastName = ""
         self.email = ""
         self.phoneNumber = ""
-        self.photoURL = URL(string: "")!
+        self.photoURL = ""
     }
 }
