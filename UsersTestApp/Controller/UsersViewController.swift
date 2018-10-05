@@ -42,7 +42,7 @@ class UsersViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == editUserIdentifier {
             let indexPath = tableView.indexPathForSelectedRow
-            let bottomBar = segue.destination as! ViewController
+            let bottomBar = segue.destination as! EditUserInfoViewController
             bottomBar.hidesBottomBarWhenPushed = true
             let backItem = UIBarButtonItem()
             backItem.title = ""
