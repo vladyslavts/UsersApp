@@ -54,9 +54,10 @@ extension UsersViewController: UITableViewDataSource {
         let user: User = self.users[indexPath.row]
         cell.userPhoneNumber.text = user.phoneNumber
         cell.userFullName.text = user.fullName
+        cell.userPic.loadFrom(user.photoURL)
+        
         return cell
     }
-    
 }
 
 extension UsersViewController: UITableViewDelegate {
