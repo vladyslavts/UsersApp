@@ -16,6 +16,12 @@ class User: NSObject {
     let phoneNumber: String
     let photoURL: String
     
+    var fullName: String {
+        get {
+            return (self.firstName + " " + self.lastName).capitalized
+        }
+    }
+    
     init(withResponse response: Result) {
         self.firstName = response.name.first
         self.lastName = response.name.last
