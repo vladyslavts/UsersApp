@@ -47,7 +47,12 @@ class EditUserInfoViewController: UIViewController {
     @IBAction func changePhoto(_ sender: UIButton) {
     }
     
-   
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        CoreDataManager.shared.save(selectedUser) {
+            print("User Saved")
+        }
+    }
+
     @objc func keyboardWillShow(notification: Notification) {
         let userInfo = notification.userInfo!
         let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue

@@ -21,6 +21,7 @@
 		13C32DC321674FF100609D59 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C32DC221674FF100609D59 /* UIImageViewExtension.swift */; };
 		13C32DC6216763D900609D59 /* EditInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C32DC4216763D900609D59 /* EditInfoTableViewCell.swift */; };
 		13C32DC7216763D900609D59 /* EditInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13C32DC5216763D900609D59 /* EditInfoTableViewCell.xib */; };
+		87262B09216907C600B26209 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87262B08216907C600B26209 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		13C32DC221674FF100609D59 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		13C32DC4216763D900609D59 /* EditInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoTableViewCell.swift; sourceTree = "<group>"; };
 		13C32DC5216763D900609D59 /* EditInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditInfoTableViewCell.xib; sourceTree = "<group>"; };
+		87262B08216907C600B26209 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				1393F2BE2165FEF7007DA5BD /* User.swift */,
+				87262B08216907C600B26209 /* CoreDataManager.swift */,
 				1393F2C02165FF0B007DA5BD /* ServerManager.swift */,
 			);
 			path = Model;
@@ -220,6 +223,7 @@
 				13C32DC321674FF100609D59 /* UIImageViewExtension.swift in Sources */,
 				1393F2C12165FF0B007DA5BD /* ServerManager.swift in Sources */,
 				1393F2A52165F83C007DA5BD /* AppDelegate.swift in Sources */,
+				87262B09216907C600B26209 /* CoreDataManager.swift in Sources */,
 				13C32DC6216763D900609D59 /* EditInfoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
