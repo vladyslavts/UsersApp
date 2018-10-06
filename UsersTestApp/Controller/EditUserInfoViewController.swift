@@ -94,7 +94,7 @@ extension EditUserInfoViewController: UITableViewDataSource {
         switch type {
         case .FirstName:
             cell.label.text = "FirstName"
-            cell.infoField.text = selectedUser.firstName
+            cell.infoField.placeholder = selectedUser.firstName
         case .LastName:
             cell.label.text = "LastName"
             cell.infoField.text = selectedUser.lastName

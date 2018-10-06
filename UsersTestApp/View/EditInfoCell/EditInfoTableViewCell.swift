@@ -16,6 +16,7 @@ class EditInfoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        infoField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,4 +28,11 @@ class EditInfoTableViewCell: UITableViewCell {
     class func identifier() -> String {
         return "EditInfoTableViewCell"
     }
+}
+
+extension EditInfoTableViewCell: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        infoField.text = textField.placeholder
+    }
+
 }
