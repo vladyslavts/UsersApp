@@ -49,7 +49,8 @@ class EditUserInfoViewController: UIViewController {
     
     @IBAction func save(_ sender: UIBarButtonItem) {
         CoreDataManager.shared.save(selectedUser) {
-            print("User Saved")
+            self.tabBarController?.selectedIndex = 1
+            self.navigationController?.popToRootViewController(animated: true)
         }
     }
 
