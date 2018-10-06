@@ -30,6 +30,8 @@ class EditUserInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userPic.layer.cornerRadius = userPic.frame.width / 2
+        userPic.loadFrom(URL(string: selectedUser.photoURL)!)
     }
 
     override func viewWillAppear(_ animated: Bool) {

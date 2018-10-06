@@ -45,7 +45,7 @@ class ServerManager: NSObject {
     }
     
     func loadUsers(count: Int, completionHandler: @escaping loadUsersCompletionHandler)  {
-        let urlString = baseURL + "+=\(count)"
+        let urlString = baseURL + "results=\(count)"
         var usersArray = [User]()
        
         guard let URL = URL(string: urlString) else {return}

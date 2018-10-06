@@ -26,7 +26,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMc-iU-NYW">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ItV-F9-h7B">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ItV-F9-h7B">
                                                         <rect key="frame" x="147.5" y="15" width="80" height="80"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ItV-F9-h7B" secondAttribute="height" multiplier="1:1" id="Xsk-gM-jCu"/>
@@ -113,7 +113,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit user info" id="K4s-kQ-GmY"/>
+                    <navigationItem key="navigationItem" title="Edit user info" id="K4s-kQ-GmY">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="fgM-fb-QWr"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="scrollView" destination="ZnU-dc-i1E" id="b5R-fg-b6h"/>
                         <outlet property="tableView" destination="IrS-lG-gJs" id="tXa-4o-rcp"/>
