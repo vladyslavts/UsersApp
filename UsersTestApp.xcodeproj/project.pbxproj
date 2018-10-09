@@ -18,6 +18,7 @@
 		1393F2C12165FF0B007DA5BD /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393F2C02165FF0B007DA5BD /* ServerManager.swift */; };
 		1393F2C421661160007DA5BD /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393F2C221661160007DA5BD /* UserTableViewCell.swift */; };
 		1393F2C521661160007DA5BD /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1393F2C321661160007DA5BD /* UserTableViewCell.xib */; };
+		13B5828E216C9EA7007CF95A /* SavedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B5828D216C9EA7007CF95A /* SavedUsersViewController.swift */; };
 		13C32DC321674FF100609D59 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C32DC221674FF100609D59 /* UIImageViewExtension.swift */; };
 		13C32DC6216763D900609D59 /* EditInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C32DC4216763D900609D59 /* EditInfoTableViewCell.swift */; };
 		13C32DC7216763D900609D59 /* EditInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13C32DC5216763D900609D59 /* EditInfoTableViewCell.xib */; };
@@ -38,6 +39,7 @@
 		1393F2C02165FF0B007DA5BD /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		1393F2C221661160007DA5BD /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		1393F2C321661160007DA5BD /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		13B5828D216C9EA7007CF95A /* SavedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersViewController.swift; sourceTree = "<group>"; };
 		13C32DC221674FF100609D59 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		13C32DC4216763D900609D59 /* EditInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoTableViewCell.swift; sourceTree = "<group>"; };
 		13C32DC5216763D900609D59 /* EditInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditInfoTableViewCell.xib; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				1393F2A62165F83C007DA5BD /* EditUserInfoViewController.swift */,
 				1393F2BC2165FCC6007DA5BD /* UsersViewController.swift */,
+				13B5828D216C9EA7007CF95A /* SavedUsersViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			files = (
 				1393F2AD2165F83C007DA5BD /* UsersTestApp.xcdatamodeld in Sources */,
 				1393F2BD2165FCC6007DA5BD /* UsersViewController.swift in Sources */,
+				13B5828E216C9EA7007CF95A /* SavedUsersViewController.swift in Sources */,
 				1393F2C421661160007DA5BD /* UserTableViewCell.swift in Sources */,
 				1393F2A72165F83C007DA5BD /* EditUserInfoViewController.swift in Sources */,
 				1393F2BF2165FEF7007DA5BD /* User.swift in Sources */,
