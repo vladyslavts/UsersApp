@@ -8,13 +8,13 @@
 
 import UIKit
 
-class User: NSObject {
-    
-    let firstName: String
-    let lastName: String
-    let email: String
-    let phoneNumber: String
-    let photoURL: String
+class User: NSObject, NSCopying {
+  
+    var firstName: String
+    var lastName: String
+    var email: String
+    var phoneNumber: String
+    var photoURL: String
     
     var fullName: String {
         get {
@@ -36,5 +36,16 @@ class User: NSObject {
         self.email = ""
         self.phoneNumber = ""
         self.photoURL = ""
+    }
+    
+  
+    func copy(with zone: NSZone? = nil) -> Any {
+        let user = User()
+        user.firstName = self.firstName
+        user.lastName = self.lastName
+        user.email = self.email
+        user.phoneNumber = self.phoneNumber
+        user.photoURL = self.photoURL
+        return user
     }
 }
