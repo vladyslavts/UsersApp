@@ -9,6 +9,7 @@
 import UIKit
 
 private let editUserSegueIdentifier = "EditUserInfoViewController"
+private let usersLoadCount = 20
 
 class UsersViewController: UIViewController {
     var users = [User]()
@@ -22,17 +23,12 @@ class UsersViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        ServerManager.shared.loadUsers(count: 250) { (users, error) in
-            self.users = users;
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        loadUsers()
+        
         // Do any additional setup after loading the view.
     }
     
-
+   
     
     // MARK: - Navigation
 
@@ -43,14 +39,24 @@ class UsersViewController: UIViewController {
 
         if segue.identifier == editUserSegueIdentifier {
             let vc = segue.destination as! EditUserInfoViewController
-            vc.selectedUser = self.users[indexPath!.row]
+            vc.selectedUser = self.users[indexPath!.row].copy() as! User
             vc.hidesBottomBarWhenPushed = true
             let backItem = UIBarButtonItem()
             backItem.title = ""
             self.navigationItem.backBarButtonItem = backItem
         }
     }
- 
+    
+    // MARK: Private func
+    
+    private func loadUsers() {
+        ServerManager.shared.loadUsers(count: usersLoadCount) { (users, error) in
+            self.users.append(contentsOf: users)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 
 }
 
@@ -78,5 +84,13 @@ extension UsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: editUserSegueIdentifier, sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == users.count - 1 {
+            loadUsers()
+            let index = IndexPath(row: users.count-1, section: 0)
+          //  tableView.scrollToRow(at: index, at: UITableView.ScrollPosition.bottom, animated: true)
+        }
     }
 }

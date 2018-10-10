@@ -8,10 +8,12 @@
 
 import UIKit
 
+private let detailInfoIdentifier = "showDetailInfo"
+
 class SavedUsersViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var savedUsers = [SavedUser]()
+    var savedUsers = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +32,25 @@ class SavedUsersViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let indexPath = tableView.indexPathForSelectedRow
+        
+        if segue.identifier == detailInfoIdentifier {
+            let vc = segue.destination as! EditUserInfoViewController
+            vc.selectedUser = self.savedUsers[indexPath!.row]
+            vc.hidesBottomBarWhenPushed = true
+            let backItem = UIBarButtonItem()
+            backItem.title = ""
+            self.navigationItem.backBarButtonItem = backItem
+        }
     }
-    */
+ 
 
 }
 
@@ -50,10 +62,10 @@ extension SavedUsersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier(), for: indexPath) as! UserTableViewCell
         
-        let savedUser: SavedUser = savedUsers[indexPath.row]
+        let savedUser: User = savedUsers[indexPath.row]
         cell.userPhoneNumber.text = savedUser.phoneNumber
         cell.userFullName.text = savedUser.fullName
-        cell.userPic.loadFrom(URL(string: savedUser.userPic!)!)
+        cell.userPic.loadFrom(URL(string: savedUser.photoURL)!)
         return cell
     }
     
@@ -62,6 +74,6 @@ extension SavedUsersViewController: UITableViewDataSource {
 
 extension SavedUsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //performSegue(withIdentifier: "azaza", sender: nil)
+        performSegue(withIdentifier: detailInfoIdentifier, sender: nil)
     }
 }

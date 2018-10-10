@@ -78,6 +78,47 @@ class EditUserInfoViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
+    private func configure(_ cell: EditInfoTableViewCell, forRowAt indexPath: IndexPath) -> EditInfoTableViewCell {
+        let type: RowType  =  RowType(rawValue: indexPath.row)!
+        
+        switch type {
+        case .FirstName:
+            cell.label.text = "First name"
+            cell.infoField.text = selectedUser.firstName
+        case .LastName:
+            cell.label.text = "Last name"
+            cell.infoField.text = selectedUser.lastName
+            
+        case .Email:
+            cell.label.text = "Email"
+            cell.infoField.text = selectedUser.email
+            
+        case .PhoneNumber:
+            cell.label.text = "Phone number"
+            cell.infoField.text = selectedUser.phoneNumber
+            
+        default:
+            break
+        }
+        
+        cell.tag = type.rawValue
+        return cell
+    }
+    
+    func updateUser(with info: String, and infoType: RowType)  {
+        switch infoType {
+        case .FirstName:
+            selectedUser.firstName = info
+        case .LastName:
+            selectedUser.lastName = info
+        case .Email:
+            selectedUser.email = info
+        case .PhoneNumber:
+            selectedUser.phoneNumber = info
+        default:
+            break
+        }
+    }
 }
 
 extension EditUserInfoViewController: UITableViewDataSource {
@@ -87,35 +128,21 @@ extension EditUserInfoViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: EditInfoTableViewCell.identifier(), for: indexPath) as! EditInfoTableViewCell
-   
-     
-        let type: RowType  =  RowType(rawValue: indexPath.row)!
-        
-        switch type {
-        case .FirstName:
-            cell.label.text = "FirstName"
-            cell.infoField.placeholder = selectedUser.firstName
-        case .LastName:
-            cell.label.text = "LastName"
-            cell.infoField.text = selectedUser.lastName
-
-        case .Email:
-            cell.label.text = "Email"
-            cell.infoField.text = selectedUser.email
-
-        case .PhoneNumber:
-            cell.label.text = "PhoneNumber"
-            cell.infoField.text = selectedUser.phoneNumber
-
-        }
-        
-
-        return cell
+        cell.delegate = self
+        return configure(cell, forRowAt: indexPath)
     }
+    
+    
 }
 
 extension EditUserInfoViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
+    }
+}
+
+extension EditUserInfoViewController: EditInfoTableViewCellDelegate {
+    func cell(_ cell: EditInfoTableViewCell, didUpdateInfo info: String) {
+        updateUser(with: info, and: RowType(rawValue: cell.tag)!)
     }
 }

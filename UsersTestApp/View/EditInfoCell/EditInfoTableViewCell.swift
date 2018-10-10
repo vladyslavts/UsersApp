@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol EditInfoTableViewCellDelegate {
+    
+    func cell(_ cell: EditInfoTableViewCell, didUpdateInfo info: String)
+}
+
 class EditInfoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var infoField: UITextField!
-    
+    var delegate: EditInfoTableViewCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,7 +38,12 @@ class EditInfoTableViewCell: UITableViewCell {
 
 extension EditInfoTableViewCell: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        infoField.text = textField.placeholder
     }
-
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.delegate?.cell(self, didUpdateInfo: textField.text!)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

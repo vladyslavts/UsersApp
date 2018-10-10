@@ -30,6 +30,14 @@ class User: NSObject, NSCopying {
         self.photoURL = response.picture.medium
     }
     
+    init(withSavedModel model: SavedUser) {
+        self.firstName = model.firstName ?? ""
+        self.lastName = model.lastName ?? ""
+        self.email = model.email ?? ""
+        self.phoneNumber = model.phoneNumber ?? ""
+        self.photoURL = model.userPic ?? ""
+    }
+    
     override init() {
         self.firstName = ""
         self.lastName = ""

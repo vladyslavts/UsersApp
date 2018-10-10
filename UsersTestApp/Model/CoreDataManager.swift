@@ -24,21 +24,22 @@ class CoreDataManager: NSObject {
         let savedUser = SavedUser(context: context)
         savedUser.firstName = user.firstName
         savedUser.lastName = user.lastName
+        savedUser.fullName = user.fullName
         savedUser.email = user.email
         savedUser.phoneNumber = user.phoneNumber
-        //savedUser.userPic
+        savedUser.userPic = user.photoURL
         saveContext()
-       // removeAll()
         completionHandler()
     }
 
-    func load() {
+    func loadUsers(complitionHandler: @escaping(_ users: [User]) -> Void) {
         let users  = try! context.fetch(SavedUser.fetchRequest()) as! [SavedUser]
-        for user in users {
-            print(user.firstName!)
+        var userModels = [User]()
+        for savedUser in users {
+            let user: User = User(withSavedModel: savedUser)
+            userModels.append(user)
         }
-       // print(users)
-
+        complitionHandler(userModels)
     }
 
     //MARK: - Private func
@@ -51,7 +52,7 @@ class CoreDataManager: NSObject {
         }
     }
 
-   private func removeAll() {
+    func removeAll() {
         do {
             let objects = try context.fetch(SavedUser.fetchRequest()) as! [SavedUser]
             for object in objects {

@@ -3,11 +3,12 @@
     <entity name="SavedUser" representedClassName=".SavedUser" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userPic" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="userPic" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SavedUser" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="SavedUser" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>
