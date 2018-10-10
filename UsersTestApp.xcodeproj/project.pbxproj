@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		138A67F2216DE99300F57940 /* InputDataValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138A67F1216DE99300F57940 /* InputDataValidator.swift */; };
 		1393F2A52165F83C007DA5BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393F2A42165F83C007DA5BD /* AppDelegate.swift */; };
 		1393F2A72165F83C007DA5BD /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1393F2A62165F83C007DA5BD /* EditUserInfoViewController.swift */; };
 		1393F2AA2165F83C007DA5BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1393F2A82165F83C007DA5BD /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		138A67F1216DE99300F57940 /* InputDataValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDataValidator.swift; sourceTree = "<group>"; };
 		1393F2A12165F83C007DA5BD /* UsersTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsersTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1393F2A42165F83C007DA5BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1393F2A62165F83C007DA5BD /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				1393F2BE2165FEF7007DA5BD /* User.swift */,
 				87262B08216907C600B26209 /* CoreDataManager.swift */,
 				1393F2C02165FF0B007DA5BD /* ServerManager.swift */,
+				138A67F1216DE99300F57940 /* InputDataValidator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				1393F2AD2165F83C007DA5BD /* UsersTestApp.xcdatamodeld in Sources */,
 				1393F2BD2165FCC6007DA5BD /* UsersViewController.swift in Sources */,
 				13B5828E216C9EA7007CF95A /* SavedUsersViewController.swift in Sources */,
+				138A67F2216DE99300F57940 /* InputDataValidator.swift in Sources */,
 				1393F2C421661160007DA5BD /* UserTableViewCell.swift in Sources */,
 				1393F2A72165F83C007DA5BD /* EditUserInfoViewController.swift in Sources */,
 				1393F2BF2165FEF7007DA5BD /* User.swift in Sources */,
