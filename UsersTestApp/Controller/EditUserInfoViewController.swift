@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum RowType: Int {
+enum CellType: Int {
     case FirstName = 0
     case LastName
     case Email
@@ -20,9 +20,11 @@ class EditUserInfoViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var userPic: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var selectedUser = User()
-
+    let validator = InputDataValidator()
+    
     override func loadView() {
         super.loadView()
         tableView.register(UINib(nibName: EditInfoTableViewCell.identifier(), bundle: nil), forCellReuseIdentifier: EditInfoTableViewCell.identifier())
@@ -79,24 +81,28 @@ class EditUserInfoViewController: UIViewController {
         
     }
     private func configure(_ cell: EditInfoTableViewCell, forRowAt indexPath: IndexPath) -> EditInfoTableViewCell {
-        let type: RowType  =  RowType(rawValue: indexPath.row)!
+        let type: CellType  =  CellType(rawValue: indexPath.row)!
         
         switch type {
         case .FirstName:
             cell.label.text = "First name"
             cell.infoField.text = selectedUser.firstName
+            cell.infoField.keyboardType = .namePhonePad
+
         case .LastName:
             cell.label.text = "Last name"
             cell.infoField.text = selectedUser.lastName
-            
+            cell.infoField.keyboardType = .namePhonePad
+
         case .Email:
             cell.label.text = "Email"
             cell.infoField.text = selectedUser.email
-            
+            cell.infoField.keyboardType = .emailAddress
+
         case .PhoneNumber:
             cell.label.text = "Phone number"
             cell.infoField.text = selectedUser.phoneNumber
-            
+            cell.infoField.keyboardType = .phonePad
         default:
             break
         }
@@ -105,14 +111,26 @@ class EditUserInfoViewController: UIViewController {
         return cell
     }
     
-    func updateUser(with info: String, and infoType: RowType)  {
+    func updateUser(with info: String, and infoType: CellType)  {
         switch infoType {
         case .FirstName:
-            selectedUser.firstName = info
+            if validator.isValidName(name: info) {
+                selectedUser.firstName = info
+            }
+            saveButton.isEnabled = validator.isValidName(name: info)
+       
         case .LastName:
-            selectedUser.lastName = info
+            if validator.isValidName(name: info) {
+                selectedUser.lastName = info
+            }
+            saveButton.isEnabled = validator.isValidName(name: info)
+
         case .Email:
-            selectedUser.email = info
+            if validator.isValidEmail(email: info) {
+                selectedUser.email = info
+            }
+            saveButton.isEnabled = validator.isValidEmail(email: info)
+
         case .PhoneNumber:
             selectedUser.phoneNumber = info
         default:
@@ -143,6 +161,6 @@ extension EditUserInfoViewController: UITableViewDelegate {
 
 extension EditUserInfoViewController: EditInfoTableViewCellDelegate {
     func cell(_ cell: EditInfoTableViewCell, didUpdateInfo info: String) {
-        updateUser(with: info, and: RowType(rawValue: cell.tag)!)
+        updateUser(with: info, and: CellType(rawValue: cell.tag)!)
     }
 }

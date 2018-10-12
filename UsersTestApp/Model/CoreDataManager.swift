@@ -32,14 +32,14 @@ class CoreDataManager: NSObject {
         completionHandler()
     }
 
-    func loadUsers(complitionHandler: @escaping(_ users: [User]) -> Void) {
+    func loadUsers(complitionHandler: @escaping(_ users: [SavedUser]) -> Void) {
         let users  = try! context.fetch(SavedUser.fetchRequest()) as! [SavedUser]
         var userModels = [User]()
         for savedUser in users {
             let user: User = User(withSavedModel: savedUser)
             userModels.append(user)
         }
-        complitionHandler(userModels)
+        complitionHandler(users)
     }
 
     //MARK: - Private func
@@ -52,6 +52,13 @@ class CoreDataManager: NSObject {
         }
     }
 
+    func remove(_ user: SavedUser) {
+        do {
+            context.delete(user)
+        }
+        saveContext()
+    }
+    
     func removeAll() {
         do {
             let objects = try context.fetch(SavedUser.fetchRequest()) as! [SavedUser]

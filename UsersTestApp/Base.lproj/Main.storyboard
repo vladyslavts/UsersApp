@@ -58,7 +58,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="CZo-38-bCN" customClass="EditInfoTableViewCell" customModule="UsersTestApp" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditInfoTableViewCell" id="CZo-38-bCN" customClass="EditInfoTableViewCell" customModule="UsersTestApp" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CZo-38-bCN" id="Jz7-lY-Jrq">
@@ -121,6 +121,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="fgM-fb-QWr" id="K3E-A8-5NQ"/>
                         <outlet property="scrollView" destination="ZnU-dc-i1E" id="b5R-fg-b6h"/>
                         <outlet property="tableView" destination="IrS-lG-gJs" id="tXa-4o-rcp"/>
                         <outlet property="userPic" destination="ItV-F9-h7B" id="79K-MN-PXd"/>
@@ -128,13 +129,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1396" y="1131"/>
+            <point key="canvasLocation" x="1351" y="1897"/>
         </scene>
         <!--Users-->
         <scene sceneID="Mcm-bo-Ann">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wdt-4m-b7J" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Users" id="0Iq-Gl-eQa"/>
+                    <tabBarItem key="tabBarItem" title="Users" image="tab_users" id="0Iq-Gl-eQa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1Rf-DR-APD">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -147,7 +148,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ReM-x5-6Vw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="276" y="278"/>
+            <point key="canvasLocation" x="68" y="278"/>
         </scene>
         <!--Users-->
         <scene sceneID="zwp-sC-0EQ">
@@ -195,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lsN-dS-eHk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="276" y="1132"/>
+            <point key="canvasLocation" x="68" y="1130"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="P0t-Dk-T22">
@@ -228,15 +229,15 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="WZJ-GB-4JP" customClass="UserTableViewCell" customModule="UsersTestApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Fj1-51-FJk">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WZJ-GB-4JP" id="eA8-Bd-NKk">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fj1-51-FJk" id="v7M-Jd-G3d">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="showDetailInfo" id="JHw-82-OFa"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="showDetailInfo" id="hHO-sO-Wll"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -268,7 +269,7 @@
         <scene sceneID="6ul-R5-Ul4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wVo-7e-RRS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Saved" id="hYy-Ep-1EK"/>
+                    <tabBarItem key="tabBarItem" title="Saved" image="tab_saved" id="hYy-Ep-1EK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="d5E-Yt-wfM">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -285,9 +286,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="tab_saved" width="28" height="26"/>
+        <image name="tab_users" width="34" height="23"/>
         <image name="userIcon" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JHw-82-OFa"/>
+        <segue reference="ntE-Gq-poN"/>
     </inferredMetricsTieBreakers>
 </document>

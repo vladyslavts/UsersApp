@@ -13,7 +13,7 @@ private let detailInfoIdentifier = "showDetailInfo"
 class SavedUsersViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var savedUsers = [User]()
+    var savedUsers = [SavedUser]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,10 @@ class SavedUsersViewController: UIViewController {
         
         if segue.identifier == detailInfoIdentifier {
             let vc = segue.destination as! EditUserInfoViewController
-            vc.selectedUser = self.savedUsers[indexPath!.row]
+            
+            let user: User = User(withSavedModel: savedUsers[(indexPath?.row)!])
+            vc.selectedUser = user
+
             vc.hidesBottomBarWhenPushed = true
             let backItem = UIBarButtonItem()
             backItem.title = ""
@@ -62,18 +65,29 @@ extension SavedUsersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier(), for: indexPath) as! UserTableViewCell
         
-        let savedUser: User = savedUsers[indexPath.row]
+        let savedUser = savedUsers[indexPath.row]
         cell.userPhoneNumber.text = savedUser.phoneNumber
         cell.userFullName.text = savedUser.fullName
-        cell.userPic.loadFrom(URL(string: savedUser.photoURL)!)
+        cell.userPic.loadFrom(URL(string: savedUser.userPic!)!)
         return cell
     }
-    
-    
 }
 
 extension SavedUsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: detailInfoIdentifier, sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            CoreDataManager.shared.remove(savedUsers[indexPath.row])
+            savedUsers.remove(at: indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .left)
+            tableView.endUpdates()
+            
+        default: break
+        }
     }
 }

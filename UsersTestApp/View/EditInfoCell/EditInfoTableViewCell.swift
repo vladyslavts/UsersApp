@@ -17,18 +17,16 @@ class EditInfoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var infoField: UITextField!
+    
     var delegate: EditInfoTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         infoField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     class func identifier() -> String {
@@ -37,13 +35,16 @@ class EditInfoTableViewCell: UITableViewCell {
 }
 
 extension EditInfoTableViewCell: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+   
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        self.delegate?.cell(self, didUpdateInfo: textField.text ?? "")
+        return true
     }
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        self.delegate?.cell(self, didUpdateInfo: textField.text!)
-    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
+    
 }
